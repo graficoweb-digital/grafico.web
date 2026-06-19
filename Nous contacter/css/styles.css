@@ -10,18 +10,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100%;
     background: #081b29;
 }
 
 .wrapper {
     position: relative;
     width: 850px;
-    height: 550px;
+    height: 750px;
     background: #081b29;
-    border: 2px solid #0ef;
     border-radius: 10px;
-    box-shadow: 0 0 25px #0ef;
     overflow: hidden;
 }
 
@@ -40,15 +38,6 @@ body {
     padding: 0 60px 0 40px;
 }
 
-.wrapper .form-box.login .animation {
-    transform: translateY(0);
-    transition: .5s ease;
-}
-
-.wrapper.active .form-box.login .animation {
-    transform: translateY(-150);
-}
-
 .wrapper .form-box.register {
     right: 0;
     padding: 0 40px 0 60px;
@@ -56,7 +45,7 @@ body {
 }
 
 .form-box h1 {
-    font-size: 20px;
+    font-size: 25px;
     color: #0ef;
     text-align: center;
 }
@@ -178,7 +167,7 @@ body {
 
 .write-box .btn input{
     color: rgb(3, 41, 44);
-    font-size: 17px;
+    font-size: 16px;
     position: relative;
     text-align: center;
     text-decoration: none;
@@ -186,7 +175,7 @@ body {
     width: 90%;
     height: 30px;
     margin-top: 55px;
-    border-radius: 25px;
+    border-radius: 15px;
     cursor: pointer;
 }
 

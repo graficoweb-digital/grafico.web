@@ -18,19 +18,17 @@ body {
     position: relative;
     width: 870px;
     height: 550px;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    border: 2px solid #e9511c;
-    box-shadow: 0 0 35px #e9511c;
-    overflow: hidden;
+    border: 1px solid #e9511c;
+    box-shadow: 0 0 25px #e9511c;
 }
 
 
 .wrapper .form-box {
     position: absolute;
     top: 0;
-    width: 50%;
-    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -125,12 +123,13 @@ body {
     position: relative;
     width: 100%;
     height: 45px;
-    background: transparent;
+    font-size: 20px;
+    background: linear-gradient(#e9511c,#081b29, #e9511c );
     border: 2px solid #52ab35;
     outline: none;
     border-radius: 40px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 800;
     z-index: 1;
     overflow: hidden;
 }
@@ -200,28 +199,3 @@ body {
     color: #fff
 }
 
-
-.wrapper .bg-animate {
-    position: absolute;
-    top: 4px;
-    right: 0;
-    width: 750px;
-    height: 600px;
-    background: linear-gradient(45deg, #081b29, #e9511c);
-    border-bottom: 3px solid #e9511c;
-    transform: rotate(10deg) skewY(36deg);
-    /*transform: rotate(0) skewY(0);*/
-    transform-origin: bottom right;
-}
-.wrapper .bg-animate2 {
-    position: absolute;
-    top: 100%;
-    left: 250px;
-    width: 850px;
-    height: 700px;
-    background: #081b29;
-    border-top: 3px solid #0ef;
-    /*transform: rotate(-11deg) skewY(-41deg);*/
-    transform: rotate(0) skewY(0);
-    transform-origin: bottom left;
-}
