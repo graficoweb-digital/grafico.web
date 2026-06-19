@@ -63,12 +63,16 @@ header {
     animation: slideTop 1s ease forwards;
 }
 
+.home-detail {
+    margin-top: 50px;
+}
+
 .home-detail h1 {
     padding: 5%;
     font-size: 60px;
     line-height: 1;
     padding-bottom: 2px;
-    margin: 0 20px;
+    margin-top: 50px;
     color: #295747;
     font-weight: 700;
     opacity: 0;
@@ -79,7 +83,6 @@ header {
 
 .home-detail h2 {
     font-size: 10px;
-    margin: 5px;
     opacity: 0;
     animation: slideLeft 1s ease forwards;
     animation-delay: 1s;
@@ -87,7 +90,6 @@ header {
 
 .home-detail h3 {
     font-size: 12px;
-    padding: 5px;
     color: #e9511c;
     opacity: 0;
     animation: slideLeft 1.3s ease forwards;
@@ -212,6 +214,7 @@ hr {
     background-color: #fff;
     border: #0e0255;
     border-radius: 30px;
+    padding: 4px;
     margin: 5px;
     font-size: 17px;
     list-style: none;
