@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contacter</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="wrapper">
+        <span class="bg-animate"></span>
+        <span class="bg-animate2"></span>
+
+        <form action="https://api.web3forms.com/submit" method="POST">
+        <div class="form-box login write-box">
+            <h1 class="animation">Nous Contacter</h1>
+            <nav class="separation"></nav>
+
+            
+                <input type="hidden" name="access_key" value="b4fc05a9-14e8-4e49-8549-707da9bc8c6d">
+                <div class="input-box animation" >
+                    <input type="text" id="Nom" name="Nom et Prénoms" required>
+                    <label>Nom et Prénoms</label>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="input-box animation" >
+                    <input type="text" id="Adresse" name="Adresse" required>
+                    <label>Adresse de residence</label>
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <div class="input-box animation" >
+                    <input type="text" id="Téléphone" name="Téléphone" required>
+                    <label>Numéro de téléphone</label>
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="input-box animation">
+                    <input type="text" id="E-mail" name="E-mail" required>
+                    <label>Adresse e-mail</label>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                
+                <div class="select" >
+                    <nav class="text">
+                        <p class="label-class">Choisir l'objet de demande...</p>
+                    </nav>
+                    <select id="service" name="Service" required>
+                        <option>Conception site web et Design</option>
+                        <option>Toutes création graphique</option>
+                        <option>Domaine informatique</option>
+                        <option>Création des application</option>
+                        <option>Interface UI/UX</option>
+                    </select>
+                </div>
+
+            
+        </div>
+        <section class="write-box">
+            <div class="projet" >
+                <label>Décrivez votre projet ici...</label>
+                <textarea id="texte" name="Projet" placeholder="Tapez votre projet ici..." required></textarea>
+            </div>
+            <div class="btn">
+                <input type="submit" value="Envoyez votre projet">
+            </div>
+
+        </section>
+        </form>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
