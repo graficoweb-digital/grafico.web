@@ -7,18 +7,27 @@
   <meta name="description" content="Je crée des sites web vitrine, e-commerce et landing page pour PME au Bénin. Livraison en 7 jours. Paiement Mobile Money.">
   <style>
     :root {
-      --vert: #16a34a; /* Vert principal */
-      --vert-clair: #f0fdf4; /* Fond clair */
+      --vert: #16a34a;
+      --vert-clair: #f0fdf4;
       --texte: #1f2937;
       --gris: #6b7280;
       --whatsapp: #25D366;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; scroll-behavior: smooth; }
     body { color: var(--texte); line-height: 1.6; }
     .container { max-width: 1100px; margin: auto; padding: 0 20px; }
+
+    /* NAVBAR */
+    nav { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+    .logo { font-size: 1.5rem; font-weight: bold; color: var(--vert); }
+    .nav-links { display: flex; gap: 25px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--texte); font-weight: 500; }
+    .nav-links a:hover { color: var(--vert); }
+    .btn-nav { background: var(--whatsapp); color: white; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: bold; }
     
     /* HERO */
-    header { background: var(--vert-clair); padding: 80px 20px; text-align: center; }
+    header { background: var(--vert-clair); padding: 100px 20px; text-align: center; }
     header h1 { font-size: 2.5rem; color: var(--vert); margin-bottom: 10px; }
     header p { font-size: 1.2rem; color: var(--gris); margin-bottom: 30px; }
     .btn { background: var(--whatsapp); color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
@@ -42,64 +51,98 @@
     .liste { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
     .liste div { font-weight: bold; font-size: 1.1rem; }
 
-    /* CONTACT */
+    /* FORMULAIRE CONTACT */
+    #formulaire { background: var(--vert-clair); }
+    form { max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 15px; }
+    input, textarea { padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem; }
+    input:focus, textarea:focus { outline: none; border-color: var(--vert); }
+    .btn-submit { background: var(--vert); color: white; border: none; padding: 14px; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+    .btn-submit:hover { opacity: 0.9; }
+
+    /* FOOTER */
     footer { background: var(--texte); color: white; text-align: center; padding: 40px 20px; }
     footer a { color: var(--whatsapp); text-decoration: none; }
+    .socials { display: flex; justify-content: center; gap: 20px; margin: 20px 0; }
+    .socials a { font-size: 1.5rem; color: white; text-decoration: none; }
+    .socials a:hover { color: var(--whatsapp); }
     
+    /* MOBILE */
     @media(max-width: 768px) {
+      .nav-links { display: none; }
       header h1 { font-size: 1.8rem; }
     }
   </style>
 </head>
+
+<script>
+  function envoyerWhatsApp(e) {
+    e.preventDefault();
+    let nom = document.getElementById('nom').value;
+    let email = document.getElementById('email').value;
+    let tel = document.getElementById('telephone').value;
+    let msg = document.getElementById('message').value;
+    
+    let texte = `Bonjour Grafico Web Digital!%0A%0A` +
+                `Nom: ${nom}%0A` +
+                `Email: ${email}%0A` +
+                `Téléphone: ${tel}%0A%0A` +
+                `Projet: ${msg}`;
+    
+    let url = `https://wa.me/22997940631?text=${texte}`;
+    window.open(url, '_blank');
+  }
+</script>
+  
 <body>
 
-  <!-- 1. HERO -->
-  <header>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-container">
+      <div class="logo">Grafico Web</div>
+      <ul class="nav-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/22997940631" class="btn-nav" target="_blank">WhatsApp</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="accueil">
     <div class="container">
       <h1>Création de Sites Web Professionnels</h1>
       <p>Je crée des sites web qui vendent pour les PME au Bénin. <br> Vitrine, E-commerce, Landing Page. Livraison en 7 jours.</p>
-      <!-- REMPLACE 229XXXXXXXX par ton numéro -->
-      <a href="https://wa.me/229XXXXXXXX?text=Bonjour%20Grafico%20Web%20Digital,%20je%20veux%20un%20site%20web" class="btn" target="_blank">💬 Parler sur WhatsApp</a>
+      <a href="https://wa.me/22997940631?text=Bonjour%20Grafico%20Web%20Digital,%20je%20veux%20un%20site%20web" class="btn" target="_blank">💬 Parler sur WhatsApp</a>
     </div>
   </header>
 
-  <!-- 2. SERVICES -->
+  <!-- SERVICES -->
   <section id="services">
     <div class="container">
       <h2>Mes Services</h2>
       <div class="grid">
-        <div class="card">
-          <h3>Site Vitrine</h3>
-          <p>Parfait pour présenter votre entreprise</p>
-          <p class="prix">À partir de 50.000 FCFA</p>
-        </div>
-        <div class="card">
-          <h3>Site E-commerce</h3>
-          <p>Vendez vos produits en ligne</p>
-          <p class="prix">À partir de 150.000 FCFA</p>
-        </div>
-        <div class="card">
-          <h3>Formation Web</h3>
-          <p>Devenez développeur en 7 jours</p>
-          <p class="prix">25.000 FCFA</p>
-        </div>
+        <div class="card"><h3>Site Vitrine</h3><p>Parfait pour présenter votre entreprise</p><p class="prix">À partir de 50.000 FCFA</p></div>
+        <div class="card"><h3>Site E-commerce</h3><p>Vendez vos produits en ligne</p><p class="prix">À partir de 150.000 FCFA</p></div>
+        <div class="card"><h3>Formation Web</h3><p>Devenez développeur en 7 jours</p><p class="prix">25.000 FCFA</p></div>
       </div>
     </div>
   </section>
 
-  <!-- 3. PORTFOLIO - NOUVEAU -->
+  <!-- PORTFOLIO -->
   <section id="portfolio">
     <div class="container">
-      <h2>Mes Réalisations</h2>
+      <h2>📁 Mes Réalisations</h2>
       <div class="grid">
-        <div class="card">
-          <div class="portfolio-img">Image Site Restaurant</div>
+        <div class="card" style="text-align: left;">
+          <div class="portfolio-img">📸 Site Restaurant</div>
           <h3>Site Vitrine - Restaurant</h3>
           <p>Site moderne avec menu en ligne et bouton WhatsApp</p>
           <a href="#" class="portfolio-btn">Voir le projet</a>
         </div>
-        <div class="card">
-          <div class="portfolio-img">Image Boutique en ligne</div>
+        <div class="card" style="text-align: left;">
+          <div class="portfolio-img">📸 Boutique</div>
           <h3>Boutique E-commerce</h3>
           <p>Boutique avec paiement Mobile Money et livraison</p>
           <a href="#" class="portfolio-btn">Voir le projet</a>
@@ -108,7 +151,7 @@
     </div>
   </section>
 
-  <!-- 4. POURQUOI MOI -->
+  <!-- POURQUOI MOI -->
   <section id="pourquoi">
     <div class="container">
       <h2>Pourquoi choisir Grafico Web Digital ?</h2>
@@ -120,12 +163,35 @@
     </div>
   </section>
 
-  <!-- 5. CONTACT -->
+  <!-- FORMULAIRE CONTACT QUI ENVOIE SUR WHATSAPP -->
+  <section id="formulaire">
+    <div class="container">
+      <h2>Parlons de votre projet</h2>
+      <form onsubmit="envoyerWhatsApp(event)">
+        <input type="text" id="nom" placeholder="Votre Nom" required>
+        <input type="email" id="email" placeholder="Votre Email" required>
+        <input type="tel" id="telephone" placeholder="Votre WhatsApp" required>
+        <textarea id="message" rows="5" placeholder="Décrivez votre projet de site web..." required></textarea>
+        <button type="submit" class="btn-submit">Envoyer sur WhatsApp</button>
+      </form>
+      <p style="text-align:center; margin-top:15px;">Ou écrivez-moi direct sur <a href="https://wa.me/22997940631">WhatsApp 97 94 06 31</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER AVEC RESEAUX SOCIAUX -->
   <footer id="contact">
     <div class="container">
-      <h2>Contactez-moi</h2>
+      <h2 style="color: white;">Grafico Web Digital</h2>
       <p>📍 Abomey-Calavi, Bénin</p>
-      <p>📞 WhatsApp: <a href="https://wa.me/229XXXXXXXX" target="_blank">Cliquez ici</a></p>
+      <p>📞 <a href="https://wa.me/22997940631" target="_blank">97 94 06 31</a></p>
+      
+      <div class="socials">
+        <a href="https://wa.me/22997940631" target="_blank">WhatsApp</a>
+        <a href="#" target="_blank">Facebook</a>
+        <a href="#" target="_blank">TikTok</a>
+        <a href="#" target="_blank">Instagram</a>
+      </div>
+
       <p>© 2026 Grafico Web Digital. Tous droits réservés.</p>
     </div>
   </footer>
