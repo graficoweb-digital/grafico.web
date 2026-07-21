@@ -1,200 +1,327 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grafico Web Digital - Création de Sites Web au Bénin</title>
-  <meta name="description" content="Je crée des sites web vitrine, e-commerce et landing page pour PME au Bénin. Livraison en 7 jours. Paiement Mobile Money.">
-  <style>
-    :root {
-      --vert: #16a34a;
-      --vert-clair: #f0fdf4;
-      --texte: #1f2937;
-      --gris: #6b7280;
-      --whatsapp: #25D366;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; scroll-behavior: smooth; }
-    body { color: var(--texte); line-height: 1.6; }
-    .container { max-width: 1100px; margin: auto; padding: 0 20px; }
-
-    /* NAVBAR */
-    nav { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-    .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
-    .logo { font-size: 1.5rem; font-weight: bold; color: var(--vert); }
-    .nav-links { display: flex; gap: 25px; list-style: none; }
-    .nav-links a { text-decoration: none; color: var(--texte); font-weight: 500; }
-    .nav-links a:hover { color: var(--vert); }
-    .btn-nav { background: var(--whatsapp); color: white; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: bold; }
-    
-    /* HERO */
-    header { background: var(--vert-clair); padding: 100px 20px; text-align: center; }
-    header h1 { font-size: 2.5rem; color: var(--vert); margin-bottom: 10px; }
-    header p { font-size: 1.2rem; color: var(--gris); margin-bottom: 30px; }
-    .btn { background: var(--whatsapp); color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
-    .btn:hover { opacity: 0.9; transform: translateY(-2px); }
-
-    /* SECTIONS */
-    section { padding: 60px 20px; }
-    h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--vert); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .card { background: white; border: 1px solid #e5e7eb; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-    .card h3 { color: var(--vert); margin-bottom: 10px; }
-    .prix { font-size: 1.5rem; font-weight: bold; color: var(--texte); }
-
-    /* PORTFOLIO */
-    #portfolio { background: var(--vert-clair); }
-    .portfolio-img { width: 100%; height: 200px; background: #d1fae5; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--vert); }
-    .portfolio-btn { background: var(--vert); color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-size: 0.9rem; }
-
-    /* POURQUOI */
-    #pourquoi { background: white; }
-    .liste { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-    .liste div { font-weight: bold; font-size: 1.1rem; }
-
-    /* FORMULAIRE CONTACT */
-    #formulaire { background: var(--vert-clair); }
-    form { max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 15px; }
-    input, textarea { padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem; }
-    input:focus, textarea:focus { outline: none; border-color: var(--vert); }
-    .btn-submit { background: var(--vert); color: white; border: none; padding: 14px; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
-    .btn-submit:hover { opacity: 0.9; }
-
-    /* FOOTER */
-    footer { background: var(--texte); color: white; text-align: center; padding: 40px 20px; }
-    footer a { color: var(--whatsapp); text-decoration: none; }
-    .socials { display: flex; justify-content: center; gap: 20px; margin: 20px 0; }
-    .socials a { font-size: 1.5rem; color: white; text-decoration: none; }
-    .socials a:hover { color: var(--whatsapp); }
-    
-    /* MOBILE */
-    @media(max-width: 768px) {
-      .nav-links { display: none; }
-      header h1 { font-size: 1.8rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafi coweb-Digital</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Basic Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-
-<script>
-  function envoyerWhatsApp(e) {
-    e.preventDefault();
-    let nom = document.getElementById('nom').value;
-    let email = document.getElementById('email').value;
-    let tel = document.getElementById('telephone').value;
-    let msg = document.getElementById('message').value;
-    
-    let texte = `Bonjour Grafico Web Digital!%0A%0A` +
-                `Nom: ${nom}%0A` +
-                `Email: ${email}%0A` +
-                `Téléphone: ${tel}%0A%0A` +
-                `Projet: ${msg}`;
-    
-    let url = `https://wa.me/22997940631?text=${texte}`;
-    window.open(url, '_blank');
-  }
-</script>
-  
 <body>
 
-  <!-- NAVBAR -->
-  <nav>
-    <div class="container nav-container">
-      <div class="logo">Grafico Web</div>
-      <ul class="nav-links">
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <a href="https://wa.me/22997940631" class="btn-nav" target="_blank">WhatsApp</a>
-    </div>
-  </nav>
+    <nav>
 
-  <!-- HERO -->
-  <header id="accueil">
-    <div class="container">
-      <h1>Création de Sites Web Professionnels</h1>
-      <p>Je crée des sites web qui vendent pour les PME au Bénin. <br> Vitrine, E-commerce, Landing Page. Livraison en 7 jours.</p>
-      <a href="https://wa.me/22997940631?text=Bonjour%20Grafico%20Web%20Digital,%20je%20veux%20un%20site%20web" class="btn" target="_blank">💬 Parler sur WhatsApp</a>
-    </div>
-  </header>
+        <a href="#" class="nav-icon" aria-label="visit homepage" aria-current="page">
+            <h1>Grafi<span>.Co</span></h1>
+            <p>Conception site web et graphisme</p>
+        </a>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
-      <h2>Mes Services</h2>
-      <div class="grid">
-        <div class="card"><h3>Site Vitrine</h3><p>Parfait pour présenter votre entreprise</p><p class="prix">À partir de 50.000 FCFA</p></div>
-        <div class="card"><h3>Site E-commerce</h3><p>Vendez vos produits en ligne</p><p class="prix">À partir de 150.000 FCFA</p></div>
-        <div class="card"><h3>Formation Web</h3><p>Devenez développeur en 7 jours</p><p class="prix">25.000 FCFA</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <div class="container">
-      <h2>📁 Mes Réalisations</h2>
-      <div class="grid">
-        <div class="card" style="text-align: left;">
-          <div class="portfolio-img">📸 Site Restaurant</div>
-          <h3>Site Vitrine - Restaurant</h3>
-          <p>Site moderne avec menu en ligne et bouton WhatsApp</p>
-          <a href="#" class="portfolio-btn">Voir le projet</a>
+        <div class="main-navlinks">
+            <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="navlinks-container">
+                <a href="#accueil" aria-current="page">Accueil</a>
+                <a href="#propos">A propos</a>
+                <a href="#services">Mes Services</a>
+                <a href="#prenium">Tarifs Prenium</a>
+                <a href="#contact">Me contacter</a>
+                
+                <div class="authentication">
+                    <hr>
+                    <br>
+                    <div class="sign-btns">
+                        <button type="button">Sign In</button>
+                        <button type="button">Sign Up</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card" style="text-align: left;">
-          <div class="portfolio-img">📸 Boutique</div>
-          <h3>Boutique E-commerce</h3>
-          <p>Boutique avec paiement Mobile Money et livraison</p>
-          <a href="#" class="portfolio-btn">Voir le projet</a>
+
+    </nav>
+    
+    <section class="home" id="accueil">
+
+        <div class="accueil">
+            <h1>Création de Sites Web Professionnels</h1>
+
+            <div class="details">
+                <h2>" Plus qu'un site, mais une expérience digitale unique, pixel par pixel. "</h2>
+                <br>
+                <hr>
+                <h3>Vitrine, E-commerce, PortFolio, Landing Page et le graphisme</h3>
+                <p>" Livraison en quelque jours "</p>
+                <br>
+                <div class="btn-group">
+                    <a href="https://wa.me/22997940631" target="_blank">Whatsapp</a>
+                    <a href="#" target="_blank">Facebook</a>
+                    <a href="#" target="_blank">TikTok</a>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+
+    
+    <section class="about" id="propos">
+
+        <div class="about-img">
+            <img src="./images/1000002476.jpg" alt="">
+        </div>
+
+        <div class="about-content">
+            <h2>A propos</h2>
+            <br>
+            <p>Créatif dans l'âme et technicien par métier, je suis TOTIN Boris. Pour moi, le design n'est pas seulement une question d'apparence, c'est une histoire que l'on raconte. Mon parcours m'a appris à marier les couleurs, les typographies et le code pour créer des expériences web immersives et des graphismes mémorables.
+            Spécialiste du détail et passionné par l'innovation. Chaque projet est une page blanche que nous remplissons ensemble pour faire briller et valoir votre marque. Que vous soyez un entrepreneur audacieux ou une marque établie, je mets ma sensibilité artistique à votre disposition pour vous démarquer avec originalité.</p>
+            <a href="#" class="more">Read more</a>
+        </div>
+    </section>
+
+    <section class="expert">
+        <div class="div">
+            <h3>Mes Savoirs faire </h3>
+            <ul>
+                <li>Des porte-clée etc...</li>
+                <li>Des affiches publicitaire</li>
+                <li>Design d'interfaces (UI/UX)</li>
+                <li>Conception de sites vitrines et e-commerce</li>
+                <li>Supports de communication (cartes de visite, plaquettes)</li>
+                <li>Graphisme (Création de logos et identités visuelles)</li>
+            </ul>
+            <p>Votre satisfaction ma priorité</p>
+        </div>
+    </section>
+
+
+    <div class="wrapper">
+
+        <p>Vous êtes passionnés de l'informatique, du graphisme ou de la conception web design et vous voulez vous perfectionnez? Creez un compte Grafico pour suivre mes formations en ligne completement 0 francs cfa.</p>
+        <br>
+        <div class="form-box">
+
+            <h1 class="animation">Se connecter</h1>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <div class="input-box">
+                    <input type="text" id="pseudo" name="pseudo" placeholder="Entrez votre Pseudo" required>
+                    <i class="bx bxs-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="mdp" name="password" placeholder="Votre mot de passe" required>
+                    <i class="bx bx-lock"></i>
+                </div>
+                <button type="submit" class="btn">Connexion</button>
+                <div class="logreg-link">
+                    <p>Vous n'avez pas un compte? <a href="./inscription/index.html" class="register-link">S'inscrire</a></p>
+                </div>
+            </form>
+        </div>
     </div>
-  </section>
 
-  <!-- POURQUOI MOI -->
-  <section id="pourquoi">
-    <div class="container">
-      <h2>Pourquoi choisir Grafico Web Digital ?</h2>
-      <div class="liste">
-        <div>⚡ Rapide : Livraison 7 jours</div>
-        <div>📱 Mobile-Friendly : 100% responsive</div>
-        <div>💰 Paiement : Mobile Money & Moov Money</div>
-      </div>
-    </div>
-  </section>
 
-  <!-- FORMULAIRE CONTACT QUI ENVOIE SUR WHATSAPP -->
-  <section id="formulaire">
-    <div class="container">
-      <h2>Parlons de votre projet</h2>
-      <form onsubmit="envoyerWhatsApp(event)">
-        <input type="text" id="nom" placeholder="Votre Nom" required>
-        <input type="email" id="email" placeholder="Votre Email" required>
-        <input type="tel" id="telephone" placeholder="Votre WhatsApp" required>
-        <textarea id="message" rows="5" placeholder="Décrivez votre projet de site web..." required></textarea>
-        <button type="submit" class="btn-submit">Envoyer sur WhatsApp</button>
-      </form>
-      <p style="text-align:center; margin-top:15px;">Ou écrivez-moi direct sur <a href="https://wa.me/22997940631">WhatsApp 97 94 06 31</a></p>
-    </div>
-  </section>
+    <section class="services" id="services">
+        <h2 class="heading">Mes Services</h2>
 
-  <!-- FOOTER AVEC RESEAUX SOCIAUX -->
-  <footer id="contact">
-    <div class="container">
-      <h2 style="color: white;">Grafico Web Digital</h2>
-      <p>📍 Abomey-Calavi, Bénin</p>
-      <p>📞 <a href="https://wa.me/22997940631" target="_blank">97 94 06 31</a></p>
-      
-      <div class="socials">
-        <a href="https://wa.me/22997940631" target="_blank">WhatsApp</a>
-        <a href="#" target="_blank">Facebook</a>
-        <a href="#" target="_blank">TikTok</a>
-        <a href="#" target="_blank">Instagram</a>
-      </div>
+        <div class="services-container">
 
-      <p>© 2026 Grafico Web Digital. Tous droits réservés.</p>
-    </div>
-  </footer>
+            <div class="service-box">
+                <div class="service-info">
+                    <i class="bx bxs-devices"></i>
+                    <h4>Conception site web vitrine</h4>
+                    <p>Vous êtes à la recherche d'une pépite créative et
+                    technique pour la refonte de votre marque
+                    (logo, univers graphique) et la création du site web
+                    associé, vous êtes au bon endroit. Expert en créativité,
+                    structuré et passionné par les beaux visuels! Je suis a 
+                    votre service!"</p>
+                </div>
+            </div>
 
+            <div class="service-box">
+                <div class="service-info">
+                    <i class="bx bx-code"></i>
+                    <h4>Develeppement web</h4>
+                    <p>Vous êtes à la recherche d'une pépite créative et
+                    technique pour la refonte de votre marque
+                    (logo, univers graphique) et la création du site web
+                    associé, vous êtes au bon endroit. Expert en créativité,
+                    structuré et passionné par les beaux visuels! Je suis a 
+                    votre service!"</p>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <div class="service-info">
+                    <i class="bx bx-code-curly"></i>
+                    <h4>Graphisme et Design</h4>
+                    <p>Vous êtes à la recherche d'une pépite créative et
+                    technique pour la refonte de votre marque
+                    (logo, univers graphique) et la création du site web
+                    associé, vous êtes au bon endroit. Expert en créativité,
+                    structuré et passionné par les beaux visuels! Je suis a 
+                    votre service!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="abonnement" id="prenium">
+        <h1>Nos Tarifs Prenium</h1>
+        <br>
+        <div class="prenium-container">
+            <div class="preniumbox">
+                <h2>Site vitrine</h2>
+                <br>
+                <p>Parfait pour présenter vos differentes entreprises</p>
+                <br>
+                <div class="prenium">
+                    <span>Prenium 1an sans assistence</span>
+                    <h3>A partir de 60.000 FCFA</h3>
+                </div>
+                <div class="prenium">
+                    <span>Prenium 1an avec assistence</span>
+                    <h3>A partir de 100.000 FCFA</h3>
+                </div>
+            </div>
+            <div class="preniumbox">
+                <h2>Site E-commerce</h2>
+                <br>
+                <p>Concu pour la vente en ligne, vos boutiques ou magasins en ligne et tout autre marcher sur internet</p>
+                <div class="prenium">
+                    <span>Prenium 1an sans assistence</span>
+                    <h3>A partir de 150.000 FCFA</h3>
+                </div>
+                <div class="prenium">
+                    <span>Prenium 1an avec assistence </span>
+                    <h3>A partir de 200.000 FCFA</h3>
+                </div>
+            </div>
+            <div class="preniumbox">
+                <h2>PortFolio</h2>
+                <br>
+                <p>Concu pour la présentation personnelle</p>
+                <div class="prenium">
+                    <span>Prenium responsive</span>
+                    <h3>A partir de 50.000 FCFA</h3>
+                </div>
+            </div>
+            <div class="preniumbox">
+                <h2>Nos formations</h2>
+                <h4>En conception web et graphisme</h4>
+                <h5>Dévenez developpeur en peu de temps grâce à nos formations</h5>
+                <br>
+                <div class="formation">
+                    <div class="formation1">
+                        <span>3 mois de formation</span>
+                        <h3>A 50.000 FCFA</h3>
+                    </div>
+                    <div class="formation1">
+                        <span>6 mois de formation</span>
+                        <h3>A 120.000 FCFA</h3>
+                    </div>
+                </div>
+                <h6>***Nos formations ne sont pas encore disponible***</h6>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="client" id="contact">
+        <h1><span>Me</span> Contacter</h1>
+        <br>
+        <div class="espace">
+            <h3>Vous êtes à la recherche d'un pépite professionnelle en conception site web design ou en graphisme ? Vous êtes au bon endroit, remplissez ce formulaire de demande de projet.</h3>
+            <br>
+            <hr>
+            <br>
+            <form action="https://api.web3forms.com/submit" method="POST" class="formulaire">
+
+                <input type="hidden" name="access_key" value="b4fc05a9-14e8-4e49-8549-707da9bc8c6d">
+                <input type="text" id="name" name="Nom" placeholder="Votre nom et prénoms" required>
+                <input type="tel" id="fone" name="Téléphone" placeholder="Votre numéro de téléphone" required>
+                <input type="email" id="mail" name="Email" placeholder="Entrez votre Email" required>
+                <select name="type" id="projet" name="Projet" required>
+                    <option value="Sélectionnez un projet">Sélectionnez un projet</option>
+                    <option value="Conception site web">Conception site web</option>
+                    <option value="Design UI/UX">Design UI/UX</option>
+                    <option value="Codage informatique">Codage informatique</option>
+                    <option value="Flyers">Flyers</option>
+                    <option value="Logos">Logos</option>
+                    <option value="Bâches de publicité/ Atéliers">Bâches de publicité/ Atéliers</option>
+                    <option value="Porte-clé">Porte-clé</option>
+                    <option value="PortFolio">PortFolio</option>
+                    <option value="Affiches publicitaires">Affiches publicitaires</option>
+                    <option value="Cartes de visites/ Tontine">Cartes de visites/ Tontine</option>
+                    <option value="Brochures">Brochures</option>
+                    <option value="Tableaux personnalisés">Tableaux personnalisés</option>
+                    <option value="aire-Part">Faire-Part</option>
+                    <option value="CV professionnel">CV professionnel</option>
+                </select>
+                <textarea name="Message" id="message" rows="9" placeholder="Décrivez votre projet ici"></textarea>
+                <button type="submit">Envoyer mon projet</button>
+            </form>
+        </div>
+    </section>
+    
+
+
+    <section class="pied-page">
+        <div class="contact">
+            <h1>Contacts</h1>
+            <hr>
+            <service class="contact-box">
+                <div class="infos">
+                    <p><b>Téléphone:</b></p>
+                    <p><b>+229 01 97 94 06 31</b></p>
+                    <p><b>+229 01 66 55 89 30</b></p> ***
+                    <p><b>grafi.coweb.digital@gmail.com</b></p>***
+                </div>
+                <br>
+                <div class="infos">
+                    <p><b>Nous sommes disponible 24h/24</b></p>***
+                    <p><b>Du Lundi au vendredi</b></p>
+                    <p><b>De 08h:00 à 22h:00</b></p>
+                    <p><b>Tout les Samedi</b></p>
+                    <p><b>De 10h:00 à 16h:00</b></p>***
+                </div> 
+            </service>
+            
+            <div class="text">
+                <p>L'ensemble de ce site (structure, design, logos, textes, graphismes et autres contenus) est la propriété exclusive de Grafico. Toute reproduction, représentation, modification ou adaptation, qu'elle soit totale ou partielle, est strictement interdite. Le non-respect de cette interdiction constitue une contrefaçon pouvant engager la responsabilité civile et pénale du contrefacteur.</p>
+                <img src="./images/Grafico 2.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="fin-page">
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <div class="socio">
+            <a href="#"><i class="ri-tiktok-line"></i></a>
+            <a href="#"><i class="ri-instagram-fill"></i></a>
+            <a href="#"><i class="ri-facebook-fill"></i></a>
+            <a href="#"><i class="ri-twitter-x-fill"></i></a>
+        </div>
+        <div class="menu">
+            <ul><a href="#accueil"> Home</a></ul>
+            <ul><a href="#propos">About</a></ul>
+            <ul><a href="#nosservice">Services</a></ul>
+            <ul><a href="#contacter">Contacts</a></ul>
+        </div>
+
+        <footer>
+            <small>&copy; 2020 @Grafico-Digital_Conception web. Touts droits reservés.</small>
+        </footer>
+    </section>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
